@@ -7,7 +7,12 @@ const StRoom = styled.div`
   position: relative;
   min-height: 100vh;
 
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background: rgb(67, 67, 67);
+  background: radial-gradient(
+    circle,
+    rgba(67, 67, 67, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
   color: #ffffff;
   display: flex;
   flex-direction: column;

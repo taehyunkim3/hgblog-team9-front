@@ -1,0 +1,27 @@
+{
+  "desks": [
+    {
+      "deskId": "TAETAE",
+      "name": "김태현",
+      "profile": "https://robohash.org/ullamoccaecatinostrum.png?size=50x50&set=set1",
+      "deskimg": "http://dummyimage.com/570x807.png/5fa2dd/ffffff",
+      "id": "gy3JgXm"
+    },
+    {
+      "deskId": "bZ8Cq",
+      "name": "김태현김태현2",
+      "description": "너무 멋진 내 책상",
+      "profile": "https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg",
+      "deskimg": "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*",
+      "id": "KfTQYF4"
+    },
+    {
+      "deskId": "t7H4o",
+      "name": "d",
+      "description": "d",
+      "profile": "asdasd",
+      "deskimg": "dasdasd",
+      "id": "XVLuWbM"
+    }
+  ]
+}

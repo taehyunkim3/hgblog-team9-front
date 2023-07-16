@@ -6,7 +6,13 @@ export const StDeskDetailBg = styled.div`
   height: 100vh;
   width: 100%;
   padding-bottom: 130px;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  // background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background: rgb(67, 67, 67);
+  background: radial-gradient(
+    circle,
+    rgba(67, 67, 67, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 `;
 
 export const StDeskDetailBody = styled.div`
@@ -20,7 +26,8 @@ export const StDeskDetailBody = styled.div`
   gap: 1rem;
   color: #ffffff;
   img {
-    width: 80%;
+    max-width: 40vw;
+    max-height: 70vh;
     // box-shadow: 0px 0px 50px 9px #ffffff;
   }
   p {
@@ -40,7 +47,12 @@ export const StDeskDetailBody = styled.div`
   }
   h2 {
     font-size: 1.4rem;
-    white-space: nowrap;
+    width: 20%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 
@@ -54,9 +66,9 @@ export const StHoverShadow = styled.div`
   background: radial-gradient(ellipse farthest-corner at top ${(prop) =>
     prop.position === "right" ? "right" : "left"}, ${(prop) =>
   prop.position === "right"
-    ? "rgba(30,0,0,0.5)"
-    : "rgba(255,255,255,0.7)"} 0%, ${(prop) =>
-  prop.position === "right" ? "rgba(0,0,0,0) " : "rgba(0,0,0,0) "} 70%);
+    ? "rgba(90,90,90,0.5)"
+    : "rgba(140,140,140,0.3)"} 0%, ${(prop) =>
+  prop.position === "right" ? "rgba(0,0,0,0) " : "rgba(0,0,0,0) "} 60%);
   opacity:0;
   transition: all .5s;
   &:hover { 

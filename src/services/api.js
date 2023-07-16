@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001";
+const baseUrl = "http://localhost:4000";
 
 
 export const getDesks = async () => { // 목록
@@ -8,9 +8,15 @@ export const getDesks = async () => { // 목록
     return data;
 }
 
+// export const getDeskDetail = async (id) => { // 상세
+//     const { data } = await axios.get(`${baseUrl}/desks/${id}`);
+//     return data;
+// }
+
 export const getDeskDetail = async (id) => { // 상세
-    const { data } = await axios.get(`${baseUrl}/desks/${id}`);
-    return data;
+    const { data } = await axios.get(`${baseUrl}/desks`);
+    const result = data.find((desk) => desk.deskId === id);
+    return result;
 }
 
 export const postDesk = async (desk) => { // 생성

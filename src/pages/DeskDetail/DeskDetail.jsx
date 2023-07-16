@@ -10,13 +10,22 @@ import {
   StDeskDetailBody,
   StHoverShadow,
 } from "./DeskDetailStyle";
+import { getDeskDetail } from "../../services/api";
+import { useQuery } from "@tanstack/react-query";
 
 const DeskDetail = () => {
   const { id } = useParams();
-  console.log(id);
-  const data = mockDB.find((data) => data.id === Number(id));
-  console.log(data);
+
   const navigate = useNavigate();
+  const { data, isLoading, isError, error } = useQuery(["desks", id], () =>
+    getDeskDetail(id)
+  );
+
+  const deskId = data && data.deskId;
+  const name = data && data.name;
+  const deskimg = data && data.deskimg;
+  if (isLoading) return "Loading...";
+  if (isError) return `An error has occurred: ${error.message}`;
 
   return (
     <StDeskDetailBg>
@@ -28,14 +37,14 @@ const DeskDetail = () => {
         <h2>교실로</h2>
         <div>
           <p>?</p>
-          <img src={data.image}></img>
-          <p>{data.name}</p>
+          <img src={deskimg}></img>
+          <p>{name}</p>
         </div>
-        <h2>{data.name}님의 방으로</h2>
+        <h2>{name}님의 방으로</h2>
         <AiOutlineArrowRight className="arrow" />
         <StHoverShadow
           position={"right"}
-          onClick={() => navigate(`/deskdetail/${id}/room`)}
+          onClick={() => navigate(`/deskdetail/${deskId}/room`)}
         />
       </StDeskDetailBody>
     </StDeskDetailBg>
