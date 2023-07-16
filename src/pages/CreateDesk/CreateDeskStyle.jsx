@@ -54,3 +54,18 @@ export const StCreateDesk = styled.div`
     }
   }
 `;
+
+export const AutoUrl = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem;
+  label {
+    font-size: 1.5rem;
+  }
+  input {
+    width: 2rem;
+    height: 2rem;
+  }
+`;
