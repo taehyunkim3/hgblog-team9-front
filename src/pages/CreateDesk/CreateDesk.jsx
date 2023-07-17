@@ -5,22 +5,36 @@ import { StCreateDesk, AutoUrl } from "./CreateDeskStyle";
 import { useState } from "react";
 import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import { getDesks, postDesk } from "../../services/api";
-import { nanoid } from "nanoid";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const initialInput = {
-  deskId: nanoid(5),
   name: "",
   description: "",
   profile: "",
-  deskimg: "",
+  deskImg: "",
 };
 const CreateDesk = () => {
+  const params = useParams();
   const navigate = useNavigate();
   const [input, setInput] = useState(initialInput);
   const [autoUrlEnabled, setAutoUrlEnabled] = useState(false);
-  const [alert, setAlert] = useState(false);
-  const queryClient = new QueryClient();
+  const [isAlert, setIsAlert] = useState(false);
+  console.log(params.deskId);
+  const { data: desk } = useQuery(["desks"], getDesks, {
+    enabled: !!params.deskId,
+    staleTime: 60 * 1000 * 30, // 30분, default >> 0
+    cacheTime: 60 * 30 * 1000, // 30분, default >> 5분
+    refetchOnWindowFocus: false,
+    retry: 2,
+  });
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   const mutation = useMutation({
     mutationFn: postDesk,
@@ -29,7 +43,7 @@ const CreateDesk = () => {
       navigate("/");
     },
     onError: (error) => {
-      alert(error);
+      isAlert(error);
     },
   });
 
@@ -39,7 +53,7 @@ const CreateDesk = () => {
       ...input,
       [name]: value,
     });
-    setAlert(false);
+    setIsAlert(false);
   };
 
   const onAutoUrlChange = (e) => {
@@ -48,25 +62,25 @@ const CreateDesk = () => {
       setInput({
         ...input,
         profile: "https://source.unsplash.com/random",
-        deskimg: "https://source.unsplash.com/random",
+        deskImg: "https://source.unsplash.com/random",
       });
     } else {
       setInput({
         ...input,
         profile: "",
-        deskimg: "",
+        deskImg: "",
       });
     }
   };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (input.name && input.description && input.profile && input.deskimg) {
+    if (input.name && input.description && input.profile && input.deskImg) {
       mutation.mutate(input);
       setInput(initialInput);
-      setAlert(false);
+      setIsAlert(false);
     } else {
-      setAlert(true);
+      setIsAlert(true);
     }
   };
 
@@ -76,7 +90,7 @@ const CreateDesk = () => {
       <StCreateDesk>
         <Desk1Svg></Desk1Svg>
 
-        {alert ? (
+        {isAlert ? (
           <h1>모든 항목을 입력해주세요.</h1>
         ) : (
           <h1>Create your own desk</h1>
@@ -107,13 +121,16 @@ const CreateDesk = () => {
           />
           <input
             type="text"
-            name="deskimg"
-            value={input.deskimg}
+            name="deskImg"
+            value={input.deskImg}
             onChange={onChangeHandler}
             placeholder="책상사진 url"
           />
 
-          <button type="submit">Create!</button>
+          <button type="submit">
+            {" "}
+            {isAlert ? " 모든 항목을 입력해주세요." : "Create!"}
+          </button>
         </form>
         <AutoUrl>
           <label htmlFor="autoUrl">자동으로 이미지 생성하기</label>

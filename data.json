@@ -1,7 +1,7 @@
 {
   "desks": [
     {
-      "deskId": "TAETAE",
+      "deskId": "11",
       "name": "김태현",
       "profile": "https://robohash.org/ullamoccaecatinostrum.png?size=50x50&set=set1",
       "deskimg": "http://dummyimage.com/570x807.png/5fa2dd/ffffff",
@@ -87,5 +87,22 @@
       "deskimg": "https://source.unsplash.com/random",
       "id": "Qv7HiAY"
     }
-  ]
+  ],
+  "11": [
+    {
+      "deskId": "11",
+      "name": "김태현",
+      "profile": "https://robohash.org/ullamoccaecatinostrum.png?size=50x50&set=set1",
+      "deskImg": "http://dummyimage.com/570x807.png/5fa2dd/ffffff",
+      "id": "gy3JgXm"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "user": {
+    "userId": "TAETAE",
+    "userName": "김태현",
+    "deskId": "11"
+  }
 }

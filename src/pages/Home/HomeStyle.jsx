@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import backgroundImage from "../../lib/img/deck.png";
+import NavBar from "../../components/NavBar/NavBar";
 
 export const StHome = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ export const StHome = styled.div`
   height: 100%;
   padding-bottom: 130px;
 `;
+
 export const StDesksBox = styled.div`
   width: 1060px;
   display: flex;
@@ -21,7 +23,6 @@ export const StDesksBox = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-//width:1060px 로 바꿀것. 1070px는 보더때문에 넣은 테스트용임.
 
 export const StDeskWrapper = styled.div`
   flex: 0 0 20%; /* Flex grow, shrink, basis. This makes sure that exactly 5 items fit in a row */

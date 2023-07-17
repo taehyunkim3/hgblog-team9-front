@@ -23,10 +23,10 @@ const DeskDetail = () => {
 
   const deskId = data && data.deskId;
   const name = data && data.name;
-  const deskimg = data && data.deskimg;
+  const deskImg = data && data.deskImg;
   if (isLoading) return "Loading...";
   if (isError) return `An error has occurred: ${error.message}`;
-
+  console.log(data);
   return (
     <StDeskDetailBg>
       <NavBar page="deskdetail" />
@@ -37,7 +37,7 @@ const DeskDetail = () => {
         <h2>교실로</h2>
         <div>
           <p>?</p>
-          <img src={deskimg}></img>
+          <img src={deskImg}></img>
           <p>{name}</p>
         </div>
         <h2>{name}님의 방으로</h2>

@@ -39,18 +39,27 @@ export const StCreateDesk = styled.div`
     padding: 1rem 1rem;
     font-size: 1rem;
   }
-  form button {
-    width: 20rem;
-    height: 3rem;
-    border-radius: 1rem;
-    border: 1px solid #e0e0e0;
-    background-color: #f6f5f7;
-    font-size: 1.5rem;
+  form p {
+    font-size: 1rem;
+    color: red;
+    text-align: left;
+    margin-left: 2rem;
+    margin-right:auto;
+    margin-bottom:-.8rem;
+  }
+    form button {
+      width: 20rem;
+      height: 3rem;
+      border-radius: 1rem;
+      border: 1px solid #e0e0e0;
+      background-color: #f6f5f7;
+      font-size: 1.5rem;
 
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-    &:hover {
-      background-color: #fed84a;
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+      &:hover {
+        background-color: #fed84a;
+      }
     }
   }
 `;
