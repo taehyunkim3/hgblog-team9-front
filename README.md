@@ -2,13 +2,9 @@
 
 ## 진행중인 프로젝트 입니다. ~23.07.20 까지 완료
 
-### FE React 김태현
-
-### BE Spring 박서윤 김민규
-
 # VITE => yarn CRA 로 변경 (VITE의 불안정성, 사진업로드 문제)
 
-### flatland.shop으로 라우팅.
+# 여기로 이동하세요 https://github.com/taehyunkim3/hhblog-team9-Front
 
 https://flatland.shop/
 
