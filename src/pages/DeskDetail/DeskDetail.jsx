@@ -1,8 +1,6 @@
-import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { initialState as mockDB } from "../../db/deskDB";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 import {

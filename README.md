@@ -6,7 +6,7 @@
 
 ### BE Spring 박서윤 김민규
 
-### yarn CRA => VITE 로 변경 (속도, env세팅 편의성 고려)
+# VITE => yarn CRA 로 변경 (VITE의 불안정성, 사진업로드 문제)
 
 ### flatland.shop으로 라우팅.
 

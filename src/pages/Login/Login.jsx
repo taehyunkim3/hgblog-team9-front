@@ -1,9 +1,9 @@
 import NavBar from "../../components/NavBar/NavBar";
 
 import Desk1Svg from "../../components/Desks/Desk1Svg";
-import { StCreateDesk, AutoUrl } from "../CreateDesk/CreateDeskStyle";
+import { StCreateDesk } from "../CreateDesk/CreateDeskStyle";
 import { useState } from "react";
-import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import { QueryClient, useMutation } from "@tanstack/react-query";
 import { postLogIn } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
@@ -28,9 +28,9 @@ const Login = () => {
     mutationFn: postLogIn,
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["login"] });
+      localStorage.setItem("token", data);
       console.log(data);
-      localStorage.setItem("token", data.token);
-      // navigate("/");
+      navigate("/");
     },
     onError: (error) => {
       alert(error);
@@ -49,21 +49,21 @@ const Login = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (input.id && input.password) {
+    if (input.userId && input.userPassword) {
       mutation.mutate(input);
       setInput(initialInput);
       setIsNoPassword(false);
       setNoIsId(false);
     }
-    if (!input.id) {
+    if (!input.userId) {
       setNoIsId(true);
     }
-    if (!input.password) {
+    if (!input.userPassword) {
       setIsNoPassword(true);
     }
   };
 
-  const onJoinHandler = (e) => {
+  const onJoinHandler = () => {
     navigate("/register");
   };
 

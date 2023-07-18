@@ -10,7 +10,7 @@ export const getDesks = async () => { // 목록
     return data;
 }
 
-export const getDeskDetail = async (id) => { // 상세
+export const getDeskDetail = async (id) => { // 상세 JSOJSONSERVER용
     const { data } = await axios.get(`${baseUrl}/11`);
     return data[0];
 }
@@ -42,9 +42,16 @@ export const postSignUp = async (user) => { // 회원가입
     return data;
 }
 
-export const postLogIn = async (user) => { // 로그인
-    const { data } = await axios.post(`${baseUrl}/auth/login`, user);
-    return data;
+// export const postLogIn = async (user) => { // 로그인
+//     const { data } = await axios.post(`${baseUrl}/auth/login`, user);
+//     return data;
+// }
+export const postLogIn = async (user) => { // 로그인 JSONSERVER용
+    const { data } = await axios.get(`${baseUrl}/login`, user);
+    console.log(data);
+    const result = await data.token.substring(6);
+
+    return result;
 }
 
 export const postSignOut = async (token) => { // 로그아웃
